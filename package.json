@@ -1,0 +1,36 @@
+{
+  "name": "@pracujwpl/express-typescript-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.ts",
+  "scripts": {
+    "lint": "tslint --config tsconfig.json src/**/*",
+    "prettier": "prettier --config .prettierrc --write src/**/*",
+    "precommit": "lint-staged",
+    "prepush": "npm run lint",
+    "prebuild": "rm -rf dist",
+    "prepublishOnly": "npm run lint",
+    "build": "tsc"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run lint && npm run prettier",
+      "git add"
+    ]
+  },
+  "author": "Tomasz Kula",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "*",
+    "@types/express": "*",
+    "husky": "*",
+    "lint-staged": "*",
+    "prettier": "*",
+    "tslint": "*",
+    "typescript": "*"
+  },
+  "dependencies": {
+    "cors": "*",
+    "express": "*"
+  }
+}
